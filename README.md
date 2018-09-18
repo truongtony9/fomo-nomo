@@ -1,1 +1,1 @@
-Remaking fomo-nomo project: More efficent, clean, and fixing bugs.
+Remaking fomo-nomo project: More efficient, clean, and fixing bugs.
