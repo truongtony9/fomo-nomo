@@ -14,7 +14,8 @@ const PORT = process.env.PORT || 4001;
 const app = express();
 
 // controllers
-
+const eventsCtrl = require('./controllers/eventsCtrl');
+const usersCtrl = require('./controllers/usersCtrl');
 //
 
 massive(process.env.CONNECTION_STRING)
@@ -27,8 +28,7 @@ app.use(json());
 app.use(cors());
 app.use(morgan('tiny'));
 
-//Auth
-//Sessions
+//Auth & Sessions
 
 app.use(
   session({
@@ -89,6 +89,16 @@ app.get('/logout', (req, res, next) => {
 
 //endpoints
 
+//events
+app.get('/api/events', eventsCtrl.getEvents);
+app.get('/api/events/:id', eventsCtrl, getAnEvent);
+app.post('/api/events', eventsCtrl.addEvent);
+app.put('/api/events', eventsCtrl.updateEvent);
+app.delete('/api/events', eventsCtrl.deleteEvent);
+//users
+app.get('/api/user', userCtrl.getCurrentUser);
+app.get('/api/users', userCtrl.getUsers);
+app.put('/api/user', userCtrl.updateUser);
 //
 
 app.listen(port, () => {
