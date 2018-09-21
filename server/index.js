@@ -87,6 +87,8 @@ app.get('/logout', (req, res, next) => {
   res.redirect(process.env.REACT_APP_HOMEPAGE);
 });
 
+//end of Auth & Session
+
 //endpoints
 
 //events
